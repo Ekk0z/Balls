@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Character & Word Counter | QuickSolveTools</title>
+    <meta name="description" content="A fast, free, and accurate word and character counter. Perfect for social media, essays, and copywriting.">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <header class="p-6 bg-white shadow-sm text-center">
+        <h1 class="text-3xl font-bold text-blue-600">QuickSolveTools</h1>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-6">
+        <div class="h-24 bg-gray-200 mb-6 flex items-center justify-center border-2 border-dashed border-gray-400">
+            [GOOGLE ADSENSE AD SLOT HERE]
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-4">Character & Word Counter</h2>
+        <textarea id="textInput" class="w-full h-64 p-4 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" placeholder="Paste your text here..."></textarea>
+
+        <div class="grid grid-cols-2 gap-4 mt-6">
+            <div class="bg-white p-4 rounded shadow text-center">
+                <p class="text-sm text-gray-500">Words</p>
+                <p id="wordCount" class="text-2xl font-bold text-blue-600">0</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <p class="text-sm text-gray-500">Characters</p>
+                <p id="charCount" class="text-2xl font-bold text-blue-600">0</p>
+            </div>
+        </div>
+
+        <section class="mt-12">
+            <h3 class="text-xl font-semibold mb-2">Why use this Counter?</h3>
+            <p class="text-gray-700">Whether you are drafting a tweet, writing an essay, or checking SEO meta-descriptions, our character and word counter provides real-time, accurate data. No login required, no bloat, just the numbers you need.</p>
+        </section>
+    </main>
+
+    <script>
+        const input = document.getElementById('textInput');
+        input.addEventListener('input', () => {
+            const text = input.value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const chars = text.length;
+            document.getElementById('wordCount').innerText = words;
+            document.getElementById('charCount').innerText = chars;
+        });
+    </script>
+</body>
+</html>
