@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Riaa 💖</title>
-    <!-- Importing a cute font from Google Fonts -->
+    <!-- Cute fonts from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -47,9 +47,10 @@
         /* Images */
         .cute-img {
             max-width: 100%;
+            height: 200px; /* Keeps the survey from jumping up and down too much */
+            object-fit: contain;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         /* Buttons */
@@ -60,10 +61,10 @@
             font-size: 16px;
             border: none;
             padding: 12px 20px;
-            margin: 10px;
+            margin: 8px;
             border-radius: 15px;
             cursor: pointer;
-            width: 80%;
+            width: 85%;
             transition: transform 0.2s, background 0.2s;
             box-shadow: 0 4px 10px rgba(255, 117, 159, 0.3);
         }
@@ -82,7 +83,7 @@
 
         /* Fade-in Animation */
         .fade-in {
-            animation: fadeIn 0.8s ease-in-out;
+            animation: fadeIn 0.6s ease-in-out;
         }
 
         @keyframes fadeIn {
@@ -106,35 +107,56 @@
 </head>
 <body>
 
-    <!-- QUESTION 1 / INTRO -->
+    <!-- STEP 1 / INTRO -->
     <div class="container fade-in" id="step1">
-        <img src="https://media.giphy.com/media/LY2j82vT7XmYk50m4b/giphy.gif" alt="Cute bear" class="cute-img">
+        <img src="https://media.tenor.com/bCbp6PReql0AAAAi/peach-cat-cute.gif" alt="Cute waving cat" class="cute-img">
         <h2>Hi Riaa! 🌸</h2>
         <p>I made a little survey just for you. Are you ready?</p>
         <button class="btn" onclick="nextStep(2)">Yes, let's go! 💖</button>
     </div>
 
-    <!-- QUESTION 2 -->
+    <!-- STEP 2 / QUESTION 1 -->
     <div class="container hidden" id="step2">
-        <img src="https://media.giphy.com/media/26FPCXdkvDbKBbgOI/giphy.gif" alt="Cute question" class="cute-img">
+        <img src="https://media.tenor.com/cE01Z9GgY2gAAAAi/mochi-peach-cat.gif" alt="Cat looking in mirror" class="cute-img">
         <h2>Question 1</h2>
         <p>Who is the prettiest, most amazing girlfriend in the whole world?</p>
         <button class="btn" onclick="nextStep(3)">Me! (Riaa)</button>
-        <button class="btn" onclick="nextStep(3)">Also me! ✨</button>
+        <button class="btn" onclick="nextStep(3)">Obviously me! ✨</button>
     </div>
 
-    <!-- QUESTION 3 -->
+    <!-- STEP 3 / QUESTION 2 -->
     <div class="container hidden" id="step3">
-        <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Cat playing" class="cute-img">
+        <img src="https://media.tenor.com/Z4-e2l8p0mYAAAAi/peach-cat-kiss.gif" alt="Cats hugging" class="cute-img">
         <h2>Question 2</h2>
-        <p>Are you ready for your surprise gift?</p>
-        <button class="btn" onclick="nextStep(4)">Give it to me! 🎮</button>
+        <p>What is your favorite thing to do with me?</p>
+        <button class="btn" onclick="nextStep(4)">Play video games 🎮</button>
+        <button class="btn" onclick="nextStep(4)">Go on cute dates 🌷</button>
+        <button class="btn" onclick="nextStep(4)">Literally everything ❤️</button>
     </div>
 
-    <!-- FINAL SCREEN: GAME CODES -->
+    <!-- STEP 4 / QUESTION 3 -->
     <div class="container hidden" id="step4">
-        <img src="https://media.giphy.com/media/Jp3v27CBi2L0D5aO25/giphy.gif" alt="Celebration" class="cute-img">
-        <h2>Surprise! 🎀</h2>
+        <img src="https://media.tenor.com/V4jM6-lA3R4AAAAi/peach-cat-love.gif" alt="Cat sending hearts" class="cute-img">
+        <h2>Question 3</h2>
+        <p>How much do you love me?</p>
+        <button class="btn" onclick="nextStep(5)">A lot! 🥺</button>
+        <button class="btn" onclick="nextStep(5)">To the moon and back! 🚀</button>
+        <button class="btn" onclick="nextStep(5)">Infinity ♾️</button>
+    </div>
+    
+    <!-- STEP 5 / QUESTION 4 -->
+    <div class="container hidden" id="step5">
+        <img src="https://media.tenor.com/8QnC6lW4YwMAAAAi/peach-cat-excited.gif" alt="Cat dancing" class="cute-img">
+        <h2>Question 4</h2>
+        <p>You passed the test! Are you ready for your surprise gift?</p>
+        <button class="btn" onclick="nextStep(6)">Give it to me! 🎁</button>
+        <button class="btn" onclick="nextStep(6)">I can't wait anymore! 🎀</button>
+    </div>
+
+    <!-- STEP 6 / FINAL SCREEN: GAME CODES -->
+    <div class="container hidden" id="step6">
+        <img src="https://media.tenor.com/1GvK_i6e4WkAAAAi/peach-goma.gif" alt="Cats celebrating" class="cute-img">
+        <h2>Surprise! 🎉</h2>
         <p>Thank you for taking my survey! Here are your game codes, I hope you love them!</p>
         
         <!-- REPLACE THE Xs and Ys WITH YOUR ACTUAL GAME CODES -->
@@ -147,15 +169,18 @@
     <!-- The Script that makes the buttons work -->
     <script>
         function nextStep(stepNumber) {
+            // Hide all containers
             const allSteps = document.querySelectorAll('.container');
             allSteps.forEach(step => {
                 step.classList.add('hidden');
                 step.classList.remove('fade-in');
             });
 
+            // Show the next container
             const nextStep = document.getElementById('step' + stepNumber);
             if (nextStep) {
                 nextStep.classList.remove('hidden');
+                // Trigger animation to restart
                 void nextStep.offsetWidth; 
                 nextStep.classList.add('fade-in');
             }
